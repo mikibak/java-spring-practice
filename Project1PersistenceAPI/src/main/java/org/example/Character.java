@@ -1,13 +1,26 @@
 package org.example;
-import javax.persistence.*;
+import lombok.Builder;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+
+import java.io.Serializable;
 
 @Entity
-public class Character implements Comparable<Character> {
+@Builder
+@Getter
+public class Character implements Comparable<Character>, Serializable {
     @Id
-    String name;
-    int level;
+    private final String name;
+    private final int level;
     @ManyToOne
-    Profession profession;
+    private final Profession profession;
+
+    public Character() {
+        name = "";
+        level = 0;
+        profession = new Profession();
+    }
 
     public Character(String name, int level, Profession profession) {
         this.name = name;
@@ -17,7 +30,7 @@ public class Character implements Comparable<Character> {
 
     @Override
     public String toString() {
-        return "Name: " + name + " level: " + level + " profession: " + profession.getName();
+        return "Character name: " + name + " level: " + level + " profession: " + profession.getName();
     }
 
     @Override public int compareTo(Character o)
