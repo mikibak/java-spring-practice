@@ -15,24 +15,24 @@ public class SkiResort implements Comparable<SkiResort>, Serializable {
     @Id
     String name;
 
-    int baseArmor;
+    int visitors;
     @Getter
     @OneToMany(mappedBy = "skiResort", cascade = CascadeType.REMOVE)
     List<Slope> slopes;
 
     public SkiResort() {
         name = "";
-        baseArmor = 0;
+        visitors = 0;
         slopes = new ArrayList<>();
     }
-    public SkiResort(String name, int baseArmor, List<Slope> slopes) {
+    public SkiResort(String name, int visitors, List<Slope> slopes) {
         this.name = name;
-        this.baseArmor = baseArmor;
+        this.visitors = visitors;
         this.slopes = slopes;
     }
 
     public String toString() {
-        return "SkiResort name: " + name + " base armor: " + baseArmor + " slopes: " + slopes;
+        return "SkiResort name: " + name + " visitors: " + visitors + " slopes: " + slopes;
     }
 
     public void addCharacter(Slope slope) {
@@ -41,10 +41,10 @@ public class SkiResort implements Comparable<SkiResort>, Serializable {
 
     @Override public int compareTo(SkiResort o)
     {
-        if (this.baseArmor > o.baseArmor) {
+        if (this.visitors > o.visitors) {
             return 1;
         }
-        else if (this.baseArmor < o.baseArmor) {
+        else if (this.visitors < o.visitors) {
             return -1;
         }
         else {

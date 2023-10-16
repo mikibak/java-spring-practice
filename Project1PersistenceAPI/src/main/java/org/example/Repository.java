@@ -25,14 +25,14 @@ public class Repository {
         em.getTransaction().commit();
     }
 
-    public void deleteCharacter(String characterName) {
+    public void deleteSlope(String slopeName) {
         em.getTransaction().begin();
-        Slope Slope = em.find(Slope.class, characterName);
+        Slope Slope = em.find(Slope.class, slopeName);
         if (Slope != null) {
             em.remove(Slope);
-            System.out.println("Piwo zostało usunięte.");
+            System.out.println("Removed");
         } else {
-            System.out.println("Nie znaleziono piwa o podanej nazwie.");
+            System.out.println("Not found");
         }
 
         em.flush();
@@ -40,14 +40,14 @@ public class Repository {
         em.getTransaction().commit();
     }
 
-    public void deleteProfession(String professionName) {
+    public void deleteSkiResort(String skiResortName) {
         em.getTransaction().begin();
-        SkiResort SkiResort = em.find(SkiResort.class, professionName);
+        SkiResort SkiResort = em.find(SkiResort.class, skiResortName);
         if (SkiResort != null) {
             em.remove(SkiResort);
-            System.out.println("Browar został usunięty.");
+            System.out.println("Removed");
         } else {
-            System.out.println("Nie znaleziono browaru o podanej nazwie.");
+            System.out.println("Not found");
         }
 
         em.flush();
@@ -55,19 +55,19 @@ public class Repository {
         em.getTransaction().commit();
     }
 
-    public SkiResort getProfession(String name) {
+    public SkiResort getSkiResort(String name) {
         SkiResort SkiResort = (SkiResort)em.find(SkiResort.class, name);
         if(SkiResort == null) {
-            System.out.println("Nie ma takiego browaru!");
+            System.out.println("Not found");
         }
         return SkiResort;
     }
 
-    public List<Slope> getCharacterList() {
+    public List<Slope> getSlopeList() {
         return em.createQuery("SELECT c FROM Slope c", Slope.class).getResultList();
     }
 
-    public List<SkiResort> getProfessionList() {
-        return em.createQuery("SELECT c FROM SkiResort c", SkiResort.class).getResultList();
+    public List<SkiResort> getSkiResortList() {
+        return em.createQuery("SELECT s FROM SkiResort s", SkiResort.class).getResultList();
     }
 }

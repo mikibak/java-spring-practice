@@ -12,33 +12,33 @@ import java.io.Serializable;
 public class Slope implements Comparable<Slope>, Serializable {
     @Id
     private final String name;
-    private final int level;
+    private final int steepness;
     @ManyToOne
     private final SkiResort skiResort;
 
     public Slope() {
         name = "";
-        level = 0;
+        steepness = 0;
         skiResort = new SkiResort();
     }
 
-    public Slope(String name, int level, SkiResort skiResort) {
+    public Slope(String name, int steepness, SkiResort skiResort) {
         this.name = name;
-        this.level = level;
+        this.steepness = steepness;
         this.skiResort = skiResort;
     }
 
     @Override
     public String toString() {
-        return "Slope name: " + name + " level: " + level + " skiResort: " + skiResort.getName();
+        return "Slope name: " + name + " steepness: " + steepness + " skiResort: " + skiResort.getName();
     }
 
     @Override public int compareTo(Slope o)
     {
-        if (this.level > o.level) {
+        if (this.steepness > o.steepness) {
             return 1;
         }
-        else if (this.level < o.level) {
+        else if (this.steepness < o.steepness) {
             return -1;
         }
         else {

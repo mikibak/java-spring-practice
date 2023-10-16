@@ -23,22 +23,43 @@ public class Main {
             EntityManager em = factory.createEntityManager();
             Repository db = new Repository(em);
 
+            //TASK 1
+            //Implementation of entity classes with appropriate comparison mechanisms (based
+            //on both hash and natural ordering) and text representation. Be careful about
+            //circuital dependencies. For element class additional implement DTO class with
+            //original fields but instead whole category use only one category field (the one best
+            //identifying it). For object creation builder pattern should be used. When some task
+            //requires to print object, the text representation should be used.
+
             //TASK 2
+            //At the application start-up, collection of categories filled with elements (remember
+            //about two way relationships) should be created. At this moment there is no need for
+            //user interaction. Objects should be created in code using appropriate creation
+            //methods. Then using nested for each lambda print all categories and elements in
+            //original order.
             System.out.println("\nTASK 2");
-            SkiResort mage = SkiResort.builder().name("Mage").baseArmor(10).build();
-            SkiResort fighter = SkiResort.builder().name("Fighter").baseArmor(17).build();
-            SkiResort cleric = SkiResort.builder().name("Cleric").baseArmor(15).build();
-            db.add(mage);
-            db.add(fighter);
-            db.add(cleric);
-            db.add(Slope.builder().name("Magik z Paktofoniki").level(9).skiResort(mage).build());
-            db.add(Slope.builder().name("Harry Pot").level(420).skiResort(mage).build());
-            db.add(Slope.builder().name("Kubale").level(100).skiResort(mage).build());
-            db.add(Slope.builder().name("Jaś Kapela").level(69).skiResort(fighter).build());
-            db.add(Slope.builder().name("Najman").level(1).skiResort(fighter).build());
-            db.add(Slope.builder().name("Kuna").level(100).skiResort(cleric).build());
-            db.add(Slope.builder().name("Manus").level(1000).skiResort(cleric).build());
-            db.getProfessionList().forEach((skiResortElement) -> {
+            SkiResort Monterosa = SkiResort.builder().name("Monterosa").visitors(10000).build();
+            SkiResort SappeyEnChartreuse = SkiResort.builder().name("Sappey-en-Chartreuse").visitors(1700).build();
+            SkiResort Wiezyca = SkiResort.builder().name("Wieżyca").visitors(150).build();
+
+            db.add(Monterosa);
+            db.add(SappeyEnChartreuse);
+            db.add(Wiezyca);
+
+            db.add(Slope.builder().name("Gressoney").steepness(9).skiResort(Monterosa).build());
+            db.add(Slope.builder().name("Champorcher").steepness(12).skiResort(Monterosa).build());
+            db.add(Slope.builder().name("Balma").steepness(16).skiResort(Monterosa).build());
+
+            db.add(Slope.builder().name("Le Trat").steepness(1).skiResort(SappeyEnChartreuse).build());
+            db.add(Slope.builder().name("Baby").steepness(12).skiResort(SappeyEnChartreuse).build());
+            db.add(Slope.builder().name("La Combe").steepness(21).skiResort(SappeyEnChartreuse).build());
+            db.add(Slope.builder().name("La Palle").steepness(40).skiResort(SappeyEnChartreuse).build());
+
+            db.add(Slope.builder().name("Kotlinka").steepness(12).skiResort(Wiezyca).build());
+            db.add(Slope.builder().name("Misiowa Górka").steepness(2).skiResort(Wiezyca).build());
+            db.add(Slope.builder().name("Koszałkowy Wierch").steepness(30).skiResort(Wiezyca).build());
+
+            db.getSkiResortList().forEach((skiResortElement) -> {
                 System.out.println(skiResortElement.toString());
                 skiResortElement.slopes.forEach((slopeElement) ->
                         System.out.println("    " + slopeElement.toString())
@@ -46,8 +67,10 @@ public class Main {
             });
 
             //TASK 3
+            //Using single Stream API pipeline create Set collection all elements (from all
+            //categories). Then using second pipeline print it.
             System.out.println("\nTASK 3");
-            Set<Slope> allElements = db.getProfessionList().stream()
+            Set<Slope> allElements = db.getSkiResortList().stream()
                     .flatMap(element -> element.getSlopes().stream())
                     .collect(Collectors.toSet());
 
@@ -55,28 +78,35 @@ public class Main {
                     .forEach(System.out::println);
 
             //TASK 4
+            //Using single Stream API pipeline filter elements collection created earlier (by one
+            //selected property), then sort it (by one different property) and print it.
             System.out.println("\nTASK 4");
             System.out.println(allElements
                     .stream()
                     .filter(element -> element.getName().length() > 5)
-                    .sorted(Comparator.comparingInt(Slope::getLevel))
+                    .sorted(Comparator.comparingInt(Slope::getSteepness))
                     .collect(Collectors.toList()));
 
             //TASK 5
+            //Using single Stream API pipeline transform elements collection created earlier into
+            //steam of DTO objects, then sort them using natural order and collect them into
+            //List collection. Then using second pipeline print it.
             System.out.println("\nTASK 5");
             ModelMapper modelMapper = new ModelMapper();
-            List<CharacterDto> charactersDto = allElements
+            List<SlopeDto> slopesDto = allElements
                     .stream()
-                    .map(objects -> new CharacterDto(objects.getName(), objects.getLevel(), objects.getSkiResort().getName()))
+                    .map(objects -> new SlopeDto(objects.getName(), objects.getSteepness(), objects.getSkiResort().getName()))
                     .collect(Collectors.toList());
-            System.out.println("List of character DTOs: " + charactersDto);
+            System.out.println("List of slope DTOs: " + slopesDto);
 
             //TASK 6
+            //Using serialization mechanism store collection of categories in the binary file, then
+            //read it from it and print call categories with elements.
             System.out.println("\nTASK 6");
             List<SkiResort> skiResorts = new ArrayList<>();
-            skiResorts.add(mage);
-            skiResorts.add(fighter);
-            skiResorts.add(cleric);
+            skiResorts.add(Monterosa);
+            skiResorts.add(SappeyEnChartreuse);
+            skiResorts.add(Wiezyca);
             String filename = "filename";
             // save the object to file
             FileOutputStream fos = null;
@@ -105,45 +135,40 @@ public class Main {
             }
 
             //TASK 7
-
+            //Using Stream API parallel pipelines with custom thread pool execute some task on
+            //each category. For example task can be printing each collection elements with
+            //intervals using Thread.sleep() to simulate workload. Observer result with
+            //different custom pool sizes. For thread pool use ForkJoinPool Remember about
+            //closing the thread pool.
             System.out.println("\nTASK 7");
-            System.out.println("2 thread");
-            ForkJoinPool customThreadPool = new ForkJoinPool(1);
-            skiResorts.parallelStream()
-                    .forEach(skiResort -> customThreadPool
-                            .execute(() -> {
-                                skiResort.slopes.forEach(element -> {
-                                    try {
-                                        Thread.sleep(2000);
-                                        System.out.println(element);
-                                    } catch (InterruptedException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                });
-                            })
-                    );
-            customThreadPool.awaitQuiescence(10, TimeUnit.SECONDS);
-            customThreadPool.shutdown();
 
             System.out.println("3 threads");
             ForkJoinPool customThreadPool1 = new ForkJoinPool(2);
-            skiResorts.parallelStream()
-                    .forEach(skiResort -> customThreadPool1
-                            .execute(() -> {
-                                skiResort.slopes.forEach(element -> {
-                                    try {
-                                        Thread.sleep(2000);
-                                        System.out.println(element);
-                                    } catch (InterruptedException e) {
-                                        throw new RuntimeException(e);
-                                    }
-                                });
-                            })
-                    );
-            customThreadPool1.awaitQuiescence(10, TimeUnit.SECONDS);
-            customThreadPool1.shutdown();
+            printParallel(skiResorts, customThreadPool1);
+
+            System.out.println("2 threads");
+            ForkJoinPool customThreadPool = new ForkJoinPool(1);
+            printParallel(skiResorts, customThreadPool);
 
             em.close();
         }
+    }
+
+    private static void printParallel(List<SkiResort> skiResorts, ForkJoinPool customThreadPool) {
+        skiResorts.parallelStream()
+                .forEach(skiResort -> customThreadPool
+                        .execute(() -> {
+                            skiResort.slopes.forEach(element -> {
+                                try {
+                                    Thread.sleep(2000);
+                                    System.out.println(element);
+                                } catch (InterruptedException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            });
+                        })
+                );
+        customThreadPool.awaitQuiescence(10, TimeUnit.SECONDS);
+        customThreadPool.shutdown();
     }
 }
