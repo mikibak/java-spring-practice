@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.*;
 import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,18 +25,20 @@ public class Main {
             Repository db = new Repository(em);
 
             //TASK 2
+            System.out.println("\nTASK 2");
             Profession mage = Profession.builder().name("Mage").baseArmor(10).build();
             Profession fighter = Profession.builder().name("Fighter").baseArmor(17).build();
+            Profession cleric = Profession.builder().name("Cleric").baseArmor(15).build();
             db.add(mage);
             db.add(fighter);
-            Character character = Character.builder().name("Magik z Paktofoniki").level(9).profession(mage).build();
-            Character character1 = Character.builder().name("Harry Pot").level(420).profession(mage).build();
-            Character character2 = Character.builder().name("Jaś Kapela").level(69).profession(fighter).build();
-            Character character3 = Character.builder().name("Najman").level(1).profession(fighter).build();
-            db.add(character);
-            db.add(character1);
-            db.add(character2);
-            db.add(character3);
+            db.add(cleric);
+            db.add(Character.builder().name("Magik z Paktofoniki").level(9).profession(mage).build());
+            db.add(Character.builder().name("Harry Pot").level(420).profession(mage).build());
+            db.add(Character.builder().name("Kubale").level(100).profession(mage).build());
+            db.add(Character.builder().name("Jaś Kapela").level(69).profession(fighter).build());
+            db.add(Character.builder().name("Najman").level(1).profession(fighter).build());
+            db.add(Character.builder().name("Kuna").level(100).profession(cleric).build());
+            db.add(Character.builder().name("Manus").level(1000).profession(cleric).build());
             db.getProfessionList().forEach((professionElement) -> {
                 System.out.println(professionElement.toString());
                 professionElement.characters.forEach((characterElement) ->
@@ -44,15 +47,16 @@ public class Main {
             });
 
             //TASK 3
-            List<Character> allElements = db.getProfessionList().stream()
+            System.out.println("\nTASK 3");
+            Set<Character> allElements = db.getProfessionList().stream()
                     .flatMap(element -> element.getCharacters().stream())
-                    .toList();
+                    .collect(Collectors.toSet());
 
-            System.out.println(allElements
-                    .stream()
-                    .collect(Collectors.toList()));
+            allElements
+                    .forEach(System.out::println);
 
             //TASK 4
+            System.out.println("\nTASK 4");
             System.out.println(allElements
                     .stream()
                     .filter(element -> element.getName().length() > 5)
@@ -60,6 +64,7 @@ public class Main {
                     .collect(Collectors.toList()));
 
             //TASK 5
+            System.out.println("\nTASK 5");
             ModelMapper modelMapper = new ModelMapper();
             List<CharacterDto> charactersDto = allElements
                     .stream()
@@ -68,9 +73,11 @@ public class Main {
             System.out.println("List of character DTOs: " + charactersDto);
 
             //TASK 6
+            System.out.println("\nTASK 6");
             List<Profession> professions = new ArrayList<>();
             professions.add(mage);
             professions.add(fighter);
+            professions.add(cleric);
             String filename = "filename";
             // save the object to file
             FileOutputStream fos = null;
@@ -100,30 +107,42 @@ public class Main {
 
             //TASK 7
 
-            int customThreadPoolSize = 1; // Adjust the pool size as needed
-
-            ForkJoinPool customThreadPool = new ForkJoinPool(customThreadPoolSize);
-
+            System.out.println("\nTASK 7");
+            System.out.println("2 thread");
+            ForkJoinPool customThreadPool = new ForkJoinPool(1);
             professions.parallelStream()
                     .forEach(profession -> customThreadPool
                             .execute(() -> {
-                                        try {
-                                            Thread.sleep(2000);
-                                            profession.characters.forEach(System.out::println);
-                                        } catch (InterruptedException e) {
-                                            throw new RuntimeException(e);
-                                        }
+                                profession.characters.forEach(element -> {
+                                    try {
+                                        Thread.sleep(2000);
+                                        System.out.println(element);
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
                                     }
-                            )
+                                });
+                            })
                     );
-
-            // Gracefully close the custom thread pool
+            customThreadPool.awaitQuiescence(10, TimeUnit.SECONDS);
             customThreadPool.shutdown();
-            try {
-                customThreadPool.awaitTermination(Long.MAX_VALUE, java.util.concurrent.TimeUnit.NANOSECONDS);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+
+            System.out.println("3 threads");
+            ForkJoinPool customThreadPool1 = new ForkJoinPool(2);
+            professions.parallelStream()
+                    .forEach(profession -> customThreadPool1
+                            .execute(() -> {
+                                profession.characters.forEach(element -> {
+                                    try {
+                                        Thread.sleep(2000);
+                                        System.out.println(element);
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
+                            })
+                    );
+            customThreadPool1.awaitQuiescence(10, TimeUnit.SECONDS);
+            customThreadPool1.shutdown();
 
             em.close();
         }
