@@ -11,25 +11,25 @@ public class Repository {
         this.em = em;
     }
 
-    public void add(Profession object) {
+    public void add(SkiResort object) {
         em.getTransaction().begin();
         em.persist(object);
         em.getTransaction().commit();
     }
 
-    public void add(Character object) {
-        Profession Profession = (Profession)em.find(Profession.class, (Object) object.getProfession().getName());
+    public void add(Slope object) {
+        SkiResort SkiResort = (SkiResort)em.find(SkiResort.class, (Object) object.getSkiResort().getName());
         em.getTransaction().begin();
         em.persist(object);
-        em.refresh(Profession);
+        em.refresh(SkiResort);
         em.getTransaction().commit();
     }
 
     public void deleteCharacter(String characterName) {
         em.getTransaction().begin();
-        Character Character = em.find(Character.class, characterName);
-        if (Character != null) {
-            em.remove(Character);
+        Slope Slope = em.find(Slope.class, characterName);
+        if (Slope != null) {
+            em.remove(Slope);
             System.out.println("Piwo zostało usunięte.");
         } else {
             System.out.println("Nie znaleziono piwa o podanej nazwie.");
@@ -42,9 +42,9 @@ public class Repository {
 
     public void deleteProfession(String professionName) {
         em.getTransaction().begin();
-        Profession Profession = em.find(Profession.class, professionName);
-        if (Profession != null) {
-            em.remove(Profession);
+        SkiResort SkiResort = em.find(SkiResort.class, professionName);
+        if (SkiResort != null) {
+            em.remove(SkiResort);
             System.out.println("Browar został usunięty.");
         } else {
             System.out.println("Nie znaleziono browaru o podanej nazwie.");
@@ -55,19 +55,19 @@ public class Repository {
         em.getTransaction().commit();
     }
 
-    public Profession getProfession(String name) {
-        Profession Profession = (Profession)em.find(Profession.class, name);
-        if(Profession == null) {
+    public SkiResort getProfession(String name) {
+        SkiResort SkiResort = (SkiResort)em.find(SkiResort.class, name);
+        if(SkiResort == null) {
             System.out.println("Nie ma takiego browaru!");
         }
-        return Profession;
+        return SkiResort;
     }
 
-    public List<Character> getCharacterList() {
-        return em.createQuery("SELECT c FROM Character c", Character.class).getResultList();
+    public List<Slope> getCharacterList() {
+        return em.createQuery("SELECT c FROM Slope c", Slope.class).getResultList();
     }
 
-    public List<Profession> getProfessionList() {
-        return em.createQuery("SELECT c FROM Profession c", Profession.class).getResultList();
+    public List<SkiResort> getProfessionList() {
+        return em.createQuery("SELECT c FROM SkiResort c", SkiResort.class).getResultList();
     }
 }

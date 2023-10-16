@@ -10,36 +10,36 @@ import java.util.List;
 
 @Entity
 @Builder
-public class Profession implements Comparable<Profession>, Serializable {
+public class SkiResort implements Comparable<SkiResort>, Serializable {
     @Getter
     @Id
     String name;
 
     int baseArmor;
     @Getter
-    @OneToMany(mappedBy = "profession", cascade = CascadeType.REMOVE)
-    List<Character> characters;
+    @OneToMany(mappedBy = "skiResort", cascade = CascadeType.REMOVE)
+    List<Slope> slopes;
 
-    public Profession() {
+    public SkiResort() {
         name = "";
         baseArmor = 0;
-        characters = new ArrayList<>();
+        slopes = new ArrayList<>();
     }
-    public Profession(String name, int baseArmor, List<Character> characters) {
+    public SkiResort(String name, int baseArmor, List<Slope> slopes) {
         this.name = name;
         this.baseArmor = baseArmor;
-        this.characters = characters;
+        this.slopes = slopes;
     }
 
     public String toString() {
-        return "Profession name: " + name + " base armor: " + baseArmor + " characters: " + characters;
+        return "SkiResort name: " + name + " base armor: " + baseArmor + " slopes: " + slopes;
     }
 
-    public void addCharacter(Character character) {
-        characters.add(character);
+    public void addCharacter(Slope slope) {
+        slopes.add(slope);
     }
 
-    @Override public int compareTo(Profession o)
+    @Override public int compareTo(SkiResort o)
     {
         if (this.baseArmor > o.baseArmor) {
             return 1;

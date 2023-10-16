@@ -13,6 +13,6 @@ class CharacterDto implements Serializable{
     }
 
     public String toString() {
-        return "Character name: " + name + " level: " + level + " profession: " + profession;
+        return "Slope name: " + name + " level: " + level + " skiResort: " + profession;
     }
 }

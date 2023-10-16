@@ -9,31 +9,31 @@ import java.io.Serializable;
 @Entity
 @Builder
 @Getter
-public class Character implements Comparable<Character>, Serializable {
+public class Slope implements Comparable<Slope>, Serializable {
     @Id
     private final String name;
     private final int level;
     @ManyToOne
-    private final Profession profession;
+    private final SkiResort skiResort;
 
-    public Character() {
+    public Slope() {
         name = "";
         level = 0;
-        profession = new Profession();
+        skiResort = new SkiResort();
     }
 
-    public Character(String name, int level, Profession profession) {
+    public Slope(String name, int level, SkiResort skiResort) {
         this.name = name;
         this.level = level;
-        this.profession = profession;
+        this.skiResort = skiResort;
     }
 
     @Override
     public String toString() {
-        return "Character name: " + name + " level: " + level + " profession: " + profession.getName();
+        return "Slope name: " + name + " level: " + level + " skiResort: " + skiResort.getName();
     }
 
-    @Override public int compareTo(Character o)
+    @Override public int compareTo(Slope o)
     {
         if (this.level > o.level) {
             return 1;
