@@ -1,5 +1,6 @@
 package org.example;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 
 import jakarta.persistence.*;
@@ -10,13 +11,12 @@ import java.util.List;
 
 @Entity
 @Builder
+@Data
 public class SkiResort implements Comparable<SkiResort>, Serializable {
-    @Getter
     @Id
     String name;
 
     int visitors;
-    @Getter
     @OneToMany(mappedBy = "skiResort", cascade = CascadeType.REMOVE)
     List<Slope> slopes;
 

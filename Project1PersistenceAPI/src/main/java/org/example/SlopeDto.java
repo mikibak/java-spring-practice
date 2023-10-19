@@ -1,6 +1,9 @@
 package org.example;
+import lombok.Builder;
+
 import java.io.Serializable;
 
+@Builder
 class SlopeDto implements Serializable{
     String name;
     int steepness;
