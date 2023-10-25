@@ -13,13 +13,16 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Slope implements Comparable<Slope>, Serializable {
     @Id
+    @Column
     private UUID id;
 
+    @Column
     private String name;
 
     @Getter
+    @Column
     private int steepness;
-    
+
     @JoinColumn(name = "ski_resort")
     @ManyToOne
     private SkiResort skiResort;

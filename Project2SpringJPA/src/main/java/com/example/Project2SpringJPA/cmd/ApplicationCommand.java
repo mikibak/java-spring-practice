@@ -45,6 +45,9 @@ public class ApplicationCommand implements CommandLineRunner {
                         System.out.println("Not Found");
                     }
                 }
+                case "echo" -> {
+                    System.out.println("echo echo echo");
+                }
             }
         }
     }

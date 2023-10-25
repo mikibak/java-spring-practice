@@ -20,15 +20,19 @@ import java.util.UUID;
 
 public class SkiResort implements Comparable<SkiResort>, Serializable {
     @Id
+    @Column
     private UUID id;
 
+    @Column
     private String name;
 
+    @Column
     int visitors;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "ski_resort", cascade = CascadeType.REMOVE)
+    @Column(name="slopes")
+    @OneToMany(mappedBy = "skiResort", cascade = CascadeType.REMOVE)
     List<Slope> slopes;
 
     public void addSlope(Slope slope) {
