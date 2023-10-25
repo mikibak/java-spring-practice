@@ -1,11 +1,13 @@
 package com.example.Project2SpringJPA.slope.service.impl;
 
 import com.example.Project2SpringJPA.slope.entity.SkiResort;
+import com.example.Project2SpringJPA.slope.entity.Slope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.Project2SpringJPA.slope.repository.api.SkiResortRepository;
 import com.example.Project2SpringJPA.slope.service.api.SkiResortService;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -45,6 +47,11 @@ public class SkiResortDefaultService implements SkiResortService {
     @Override
     public void create(SkiResort ski_resort) {
         repository.save(ski_resort);
+    }
+
+    @Override
+    public List<SkiResort> findAll() {
+        return repository.findAll();
     }
 
 }

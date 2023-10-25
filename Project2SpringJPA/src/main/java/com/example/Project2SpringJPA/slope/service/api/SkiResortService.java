@@ -1,7 +1,9 @@
 package com.example.Project2SpringJPA.slope.service.api;
 
 import com.example.Project2SpringJPA.slope.entity.SkiResort;
+import com.example.Project2SpringJPA.slope.entity.Slope;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,4 +26,8 @@ public interface SkiResortService {
      */
     void create(SkiResort ski_resort);
 
+    /**
+     * @return all available slopes
+     */
+    List<SkiResort> findAll();
 }
