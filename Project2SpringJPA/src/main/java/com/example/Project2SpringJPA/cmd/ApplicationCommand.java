@@ -43,18 +43,19 @@ public class ApplicationCommand implements CommandLineRunner {
         String command;
         main_loop:
         while (true) {
-            command = scanner.next();
+            command = scanner.nextLine();
             switch (command) {
                 case "help" -> {
                     System.out.println("Available commands:\n" +
-                            "list ski resorts" +
-                            "list all slopes" +
-                            "add new slope [category id] [new slope id] [name] [steepness]" +
-                            "delete slope" +
-                            "stop"
+                            "list ski resorts\n" +
+                            "list all slopes\n" +
+                            "add new slope [category id] [new slope id] [name] [steepness]\n" +
+                            "delete slope\n" +
+                            "stop\n"
                     );
                 }
                 case "list ski resorts" -> {
+                    System.out.println("List of all ski resorts:\n");
                     System.out.println(skiResortService.findAll());
                 }
                 case "list all slopes" -> {
@@ -62,11 +63,11 @@ public class ApplicationCommand implements CommandLineRunner {
                 }
                 case "add new slope" -> {
                     try {
-                        UUID category = UUID.fromString(scanner.next());
+                        UUID category = UUID.fromString(scanner.nextLine());
                         SkiResort skiResort = skiResortService.find(category).get();;
-                        UUID uuid = UUID.fromString(scanner.next());
-                        String name = scanner.next();
-                        int steepness = Integer.parseInt(scanner.next());
+                        UUID uuid = UUID.fromString(scanner.nextLine());
+                        String name = scanner.nextLine();
+                        int steepness = Integer.parseInt(scanner.nextLine());
                         slopeService.create(
                                 Slope
                                         .builder()
@@ -75,16 +76,18 @@ public class ApplicationCommand implements CommandLineRunner {
                                         .steepness(steepness)
                                         .skiResort(skiResort)
                                         .build());
+                        System.out.println("Slope added!");
                     } catch (NoSuchElementException ex) {
-                        System.out.println("Not Found");
+                        System.out.println("Operation failed!");
                     }
                 }
                 case "delete slope" -> {
                     try {
-                        UUID uuid = UUID.fromString(scanner.next());
+                        UUID uuid = UUID.fromString(scanner.nextLine());
                         slopeService.delete(uuid);
+                        System.out.println("Slope deleted!");
                     } catch (NoSuchElementException ex) {
-                        System.out.println("Not Found");
+                        System.out.println("Operation failed!");
                     }
                 }
                 case "stop" -> {
