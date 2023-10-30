@@ -11,6 +11,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@EqualsAndHashCode
 public class Slope implements Comparable<Slope>, Serializable {
     @Id
     @Column
@@ -29,7 +30,7 @@ public class Slope implements Comparable<Slope>, Serializable {
 
     @Override
     public String toString() {
-        return "Slope name: " + name + " steepness: " + steepness + " skiResort: " + skiResort.getName();
+        return "Slope ID: " + id + " Slope name: " + name + " steepness: " + steepness + " skiResort: " + skiResort.getName();
     }
 
     @Override public int compareTo(Slope o)

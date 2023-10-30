@@ -41,6 +41,7 @@ public class ApplicationCommand implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String command;
+        System.out.println("\nType 'help' to view available commands\n");
         main_loop:
         while (true) {
             command = scanner.nextLine();
@@ -49,7 +50,7 @@ public class ApplicationCommand implements CommandLineRunner {
                     System.out.println("Available commands:\n" +
                             "list ski resorts\n" +
                             "list all slopes\n" +
-                            "add new slope [category id] [new slope id] [name] [steepness]\n" +
+                            "add new slope [category id] [name] [steepness]\n" +
                             "delete slope\n" +
                             "stop\n"
                     );
@@ -65,13 +66,12 @@ public class ApplicationCommand implements CommandLineRunner {
                     try {
                         UUID category = UUID.fromString(scanner.nextLine());
                         SkiResort skiResort = skiResortService.find(category).get();;
-                        UUID uuid = UUID.fromString(scanner.nextLine());
                         String name = scanner.nextLine();
                         int steepness = Integer.parseInt(scanner.nextLine());
                         slopeService.create(
                                 Slope
                                         .builder()
-                                        .id(uuid)
+                                        .id(UUID. randomUUID())
                                         .name(name)
                                         .steepness(steepness)
                                         .skiResort(skiResort)
@@ -92,6 +92,7 @@ public class ApplicationCommand implements CommandLineRunner {
                 }
                 case "stop" -> {
                     System.out.println("Stopping...");
+                    break main_loop;
                 }
             }
         }
