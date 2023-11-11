@@ -30,4 +30,6 @@ public interface SkiResortService {
      * @return all available slopes
      */
     List<SkiResort> findAll();
+
+    void delete(UUID id);
 }

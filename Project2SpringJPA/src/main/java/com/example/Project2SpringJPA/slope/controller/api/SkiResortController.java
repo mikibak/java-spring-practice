@@ -37,16 +37,17 @@ public interface SkiResortController {
             UUID id
     );
 
+
     /**
      * Deletes selected ski resort.
      *
      * @param id ski resort's id
-
+     */
     @DeleteMapping("/api/skiResorts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteSkiResort(
             @PathVariable("id")
             UUID id
     );
-*/
+
 }
