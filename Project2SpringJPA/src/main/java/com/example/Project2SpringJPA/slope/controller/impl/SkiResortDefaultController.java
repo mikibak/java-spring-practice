@@ -71,7 +71,7 @@ public class SkiResortDefaultController implements SkiResortController {
     public void deleteSkiResort(UUID id) {
         service.find(id)
                 .ifPresentOrElse(
-                        profession -> service.delete(id),
+                        skiResort -> service.delete(id),
                         () -> {
                             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                         }

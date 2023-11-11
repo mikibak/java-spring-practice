@@ -19,7 +19,7 @@ import java.util.UUID;
 public class GetSlopesResponse {
 
     /**
-     * Represents single character in list.
+     * Represents single slope in list.
      */
     @Getter
     @Setter

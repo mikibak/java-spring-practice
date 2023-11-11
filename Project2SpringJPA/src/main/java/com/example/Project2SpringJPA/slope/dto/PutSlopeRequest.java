@@ -12,8 +12,8 @@ import lombok.ToString;
 import java.util.UUID;
 
 /**
- * PUT slope request. Contains only fields that can be set up byt the user while creating a new character.How
- * character is described is defined in {@link GetSlopesResponse.Slope} class.
+ * PUT slope request. Contains only fields that can be set up byt the user while creating a new slope.How
+ * slope is described is defined in {@link GetSlopesResponse.Slope} class.
  */
 @Getter
 @Setter

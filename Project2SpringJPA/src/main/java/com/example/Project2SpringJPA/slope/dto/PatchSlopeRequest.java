@@ -23,7 +23,7 @@ import lombok.ToString;
 public class PatchSlopeRequest {
 
     /**
-     * Character's name.
+     * Slope's name.
      */
     private String name;
 

@@ -13,7 +13,7 @@ import java.util.UUID;
 
 /**
  * GET slope response. It contains all field that can be presented (but not necessarily changed) to the used. How
- * character is described is defined in {@link GetSlopesResponse[esResponse.Slope}.
+ * slope is described is defined in {@link GetSlopesResponse[esResponse.Slope}.
  */
 @Getter
 @Setter

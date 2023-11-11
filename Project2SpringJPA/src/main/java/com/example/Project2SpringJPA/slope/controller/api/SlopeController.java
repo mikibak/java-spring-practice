@@ -17,15 +17,15 @@ import java.util.UUID;
 public interface SlopeController {
 
     /**
-     * @return list of characters
+     * @return list of slopes
      */
-    @GetMapping("api/characters")
+    @GetMapping("api/slopes")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetSlopesResponse getSlopes();
 
     /**
-     * @param professionId slope's ski resort
+     * @param skiResortId slope's ski resort
      * @return list of slopes
      */
     @GetMapping("/api/skiResorts/{skiResortId}/slopes")
@@ -33,7 +33,7 @@ public interface SlopeController {
     @ResponseBody
     GetSlopesResponse getSkiResortSlopes(
             @PathVariable("skiResortId")
-            UUID professionId
+            UUID skiResortId
     );
 
     /**

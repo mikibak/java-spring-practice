@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * Coverts {@link List<Character>} to {@link GetSlopesResponse}.
+ * Coverts {@link List<Slope>} to {@link GetSlopesResponse}.
  */
 @Component
 public class SlopesToResponseFunction implements Function<List<Slope>, GetSlopesResponse> {

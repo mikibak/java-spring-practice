@@ -71,8 +71,8 @@ public class SlopeDefaultController implements SlopeController {
     }
 
     @Override
-    public GetSlopesResponse getSkiResortSlopes(UUID professionId) {
-        return service.findAllBySkiResort(professionId)
+    public GetSlopesResponse getSkiResortSlopes(UUID skiResortId) {
+        return service.findAllBySkiResort(skiResortId)
                 .map(slopesToResponse)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }

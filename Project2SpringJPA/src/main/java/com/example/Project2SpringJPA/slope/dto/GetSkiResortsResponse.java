@@ -46,7 +46,7 @@ public class GetSkiResortsResponse {
     }
 
     /**
-     * List of all professions.
+     * List of all skiResorts.
      */
     private List<SkiResort> skiResorts;
 
