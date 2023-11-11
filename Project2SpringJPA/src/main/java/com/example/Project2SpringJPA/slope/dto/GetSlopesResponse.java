@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Singular;
 import lombok.ToString;
 
 import java.util.List;
@@ -53,7 +52,6 @@ public class GetSlopesResponse {
     /**
      * Name of the selected slopes.
      */
-    @Singular
     private List<Slope> slopes;
 
 }
