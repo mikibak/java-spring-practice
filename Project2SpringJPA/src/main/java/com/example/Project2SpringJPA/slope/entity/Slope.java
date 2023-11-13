@@ -18,14 +18,16 @@ public class Slope implements Comparable<Slope>, Serializable {
     private UUID id;
 
     @Column
+    @Setter
     private String name;
 
-    @Getter
+    @Setter
     @Column
     private int steepness;
 
     @JoinColumn(name = "ski_resort")
     @ManyToOne
+    @Setter
     private SkiResort skiResort;
 
     @Override

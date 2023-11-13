@@ -1,5 +1,6 @@
 package com.example.Project2SpringJPA.slope.service.impl;
 
+import com.example.Project2SpringJPA.slope.entity.SkiResort;
 import com.example.Project2SpringJPA.slope.entity.Slope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,7 +65,10 @@ public class SlopeDefaultService implements SlopeService {
 
     @Override
     public void update(Slope slope) {
-        repository.save(slope);
+        Slope slope1 = repository.findById(slope.getId()).get();
+        slope1.setName(slope.getName());
+        slope1.setSteepness(slope.getSteepness());
+        repository.save(slope1);
     }
 
     @Override

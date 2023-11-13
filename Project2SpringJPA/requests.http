@@ -4,7 +4,7 @@ GET http://localhost:8080/api/slopes
 
 ### Get single slope
 
-GET http://localhost:8080/api/slopes/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+GET http://localhost:8080/api/slopes/9fbfb632-e7bf-4032-93b1-a16d31f182c6
 
 ### Get single slope, not existing
 
@@ -12,7 +12,7 @@ GET http://localhost:8080/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
 
 ### Get skiResort slopes
 
-GET http://localhost:8080/api/skiResorts/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/slopes
+GET http://localhost:8080/api/skiResorts/829c996b-1f7d-46aa-ae18-aeeda655b5b3/slopes
 
 ### Get skiResort slopes, not existing
 
@@ -20,12 +20,12 @@ GET http://localhost:8080/api/skiResorts/ac4e2683-b2ba-4695-94d9-806a97fce71e/sl
 
 ### Create new slope
 
-PUT http://localhost:8080/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+PUT http://localhost:8080/api/slopes/5a3dad6c-d1d6-4679-823f-a5476a1c17f1
 Content-Type: application/json
 Authorization: Basic a2V2aW46dXNlcnVzZXI=
 
 {
-  "name": "HTTP slope",
+  "name": "Koszalkowy",
   "steepness": 10,
   "skiResort": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
 }
@@ -33,6 +33,17 @@ Authorization: Basic a2V2aW46dXNlcnVzZXI=
 ### Delete slope.
 
 DELETE http://localhost:8080/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Update slope.
+
+PATCH http://localhost:8080/api/slopes/8557ce31-e04a-4c69-98c9-fe5d549f2715
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Koszalgowy",
+  "steepness": 10
+}
 
 ### Get all skiResorts
 

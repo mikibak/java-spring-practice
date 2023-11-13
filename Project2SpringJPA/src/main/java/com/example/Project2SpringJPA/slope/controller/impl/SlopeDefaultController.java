@@ -2,6 +2,7 @@ package com.example.Project2SpringJPA.slope.controller.impl;
 
 import com.example.Project2SpringJPA.slope.controller.api.SlopeController;
 import com.example.Project2SpringJPA.slope.dto.GetSlopesResponse;
+import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
 import com.example.Project2SpringJPA.slope.service.api.SlopeService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +48,16 @@ public class SlopeDefaultController implements SlopeController {
     private final RequestToSlopeFunction requestToSlope;
 
     /**
+     * Converts {@link PatchSlopeRequest} to {@link Slope}.
+     */
+    //private final PatchToSlopeFunction patchToSlope;
+
+    /**
      * @param service              service for managing slopes
      * @param slopeToResponse  converts {@link Slope} to {@link GetSlopeResponse}
      * @param slopesToResponse coverts {@link List <Slope>} to {@link GetSlopesResponse}
      * @param requestToSlope   converts {@link PutSlopeRequest} to {@link Slope}
+     //* @param patchToSlope   converts {@link PatchSlopeRequest} to {@link Slope}
      */
     @Autowired
     public SlopeDefaultController(
@@ -99,5 +106,24 @@ public class SlopeDefaultController implements SlopeController {
                         }
                 );
     }
+
+    @Override
+    public void patchSlope(UUID id, PatchSlopeRequest request) {
+        Slope updatedSlope = Slope.builder()
+                        .id(id)
+                .name(request.getName())
+                .steepness(request.getSteepness())
+        .build();
+
+        service.find(id)
+                .ifPresentOrElse(
+                        slope -> service.update(updatedSlope),
+                        () -> {
+                            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                        }
+                );
+
+    }
+
 
 }

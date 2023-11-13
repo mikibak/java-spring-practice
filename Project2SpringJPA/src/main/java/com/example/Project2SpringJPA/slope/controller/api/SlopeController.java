@@ -2,15 +2,10 @@ package com.example.Project2SpringJPA.slope.controller.api;
 
 import com.example.Project2SpringJPA.slope.dto.GetSlopeResponse;
 import com.example.Project2SpringJPA.slope.dto.GetSlopesResponse;
+import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
 import com.example.Project2SpringJPA.slope.dto.PutSlopeRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -71,6 +66,20 @@ public interface SlopeController {
     void deleteSlope(
             @PathVariable("id")
             UUID id
+    );
+
+
+    /**
+     * @param id      slope's id
+     * @param request new slope
+     */
+    @PatchMapping("/api/slopes/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    void patchSlope(
+            @PathVariable("id")
+            UUID id,
+            @RequestBody
+            PatchSlopeRequest request
     );
 
 }
