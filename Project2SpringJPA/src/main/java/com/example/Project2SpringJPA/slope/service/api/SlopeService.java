@@ -1,5 +1,6 @@
 package com.example.Project2SpringJPA.slope.service.api;
 
+import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
 import com.example.Project2SpringJPA.slope.entity.SkiResort;
 import com.example.Project2SpringJPA.slope.entity.Slope;
 
@@ -37,9 +38,9 @@ public interface SlopeService {
     /**
      * Updates existing slope.
      *
-     * @param slope slope to be updated
      */
-    void update(Slope slope);
+
+    void update(UUID id, PatchSlopeRequest request);
 
     /**
      * Deletes existing slope.

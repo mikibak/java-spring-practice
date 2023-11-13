@@ -109,15 +109,10 @@ public class SlopeDefaultController implements SlopeController {
 
     @Override
     public void patchSlope(UUID id, PatchSlopeRequest request) {
-        Slope updatedSlope = Slope.builder()
-                        .id(id)
-                .name(request.getName())
-                .steepness(request.getSteepness())
-        .build();
 
         service.find(id)
                 .ifPresentOrElse(
-                        slope -> service.update(updatedSlope),
+                        slope -> service.update(id, request),
                         () -> {
                             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
                         }
