@@ -1,7 +1,7 @@
-package com.example.Project2SpringJPA.slope.function;
+package com.example.slopeProject.slope.function;
 
-import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.slope.dto.PatchSlopeRequest;
+import com.example.slopeProject.slope.entity.Slope;
 
 import java.util.function.BiFunction;
 

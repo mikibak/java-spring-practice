@@ -3,4 +3,4 @@
  * (e.g. database, filesystem, memory, etc.). Repositories are only place where code should be aware of how data is
  * stored. Repositories can be implemented as @Repository beans.
  */
-package com.example.Project2SpringJPA.slope.repository;
+package com.example.skiResortProject.skiResort.repository;

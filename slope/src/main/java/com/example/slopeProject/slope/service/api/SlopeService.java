@@ -1,8 +1,8 @@
-package com.example.Project2SpringJPA.slope.service.api;
+package com.example.slopeProject.slope.service.api;
 
-import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
-import com.example.Project2SpringJPA.slope.entity.SkiResort;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.slope.dto.PatchSlopeRequest;
+import com.example.slopeProject.skiResort.entity.SkiResort;
+import com.example.slopeProject.slope.entity.Slope;
 
 import java.io.InputStream;
 import java.util.List;

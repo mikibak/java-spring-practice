@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Project2SpringJPA</artifactId>
+	<artifactId>skiResort</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Project2SpringJPA</name>
+	<name>skiResort</name>
 	<description>Basic components of Spring Framework (component, repository, service), mechanism of dependency injection and inversion of control as well as basic components of Spring Data.</description>
 	<properties>
 		<java.version>17</java.version>

@@ -1,4 +1,4 @@
-package com.example.Project2SpringJPA.slope.dto;
+package com.example.slopeProject.slope.dto;
 
 import lombok.*;
 

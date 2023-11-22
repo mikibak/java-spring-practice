@@ -1,7 +1,7 @@
-package com.example.Project2SpringJPA.slope.controller.api;
+package com.example.skiResortProject.skiResort.controller.api;
 
-import com.example.Project2SpringJPA.slope.dto.GetSkiResortResponse;
-import com.example.Project2SpringJPA.slope.dto.GetSkiResortsResponse;
+import com.example.skiResortProject.skiResort.dto.GetSkiResortResponse;
+import com.example.skiResortProject.skiResort.dto.GetSkiResortsResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

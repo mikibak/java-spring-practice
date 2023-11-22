@@ -1,12 +1,12 @@
-package com.example.Project2SpringJPA.slope.service.impl;
+package com.example.slopeProject.slope.service.impl;
 
-import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.slope.dto.PatchSlopeRequest;
+import com.example.slopeProject.slope.entity.Slope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.Project2SpringJPA.slope.repository.api.SlopeRepository;
-import com.example.Project2SpringJPA.slope.repository.api.SkiResortRepository;
-import com.example.Project2SpringJPA.slope.service.api.SlopeService;
+import com.example.slopeProject.slope.repository.api.SlopeRepository;
+import com.example.slopeProject.skiResort.repository.api.SkiResortRepository;
+import com.example.slopeProject.slope.service.api.SlopeService;
 
 import java.util.List;
 import java.util.Optional;

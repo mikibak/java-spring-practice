@@ -1,14 +1,10 @@
-package com.example.slopeProject.slope.dto;
+package com.example.slopeProject.skiResort.dto;
 
 import lombok.*;
 
 import java.util.List;
 import java.util.UUID;
 
-/**
- * GET slopes response. Contains list of available slopes. Can be used to list particular ski resort's slopes as
- * well as all slopes in the game.
- */
 @Getter
 @Setter
 @Builder
@@ -16,10 +12,10 @@ import java.util.UUID;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class GetSlopesResponse {
+public class GetSkiResortsResponse {
 
     /**
-     * Represents single slope in list.
+     * Represents single ski resort in list.
      */
     @Getter
     @Setter
@@ -28,24 +24,23 @@ public class GetSlopesResponse {
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @ToString
     @EqualsAndHashCode
-    public static class Slope {
+    public static class SkiResort {
 
         /**
-         * Unique id identifying slope.
+         * Unique id identifying ski resort.
          */
         private UUID id;
 
         /**
-         * Name of the slope.
+         * Name of the ski resort.
          */
         private String name;
 
     }
 
     /**
-     * Name of the selected slopes.
+     * List of all skiResorts.
      */
-    @Singular
-    private List<Slope> slopes;
+    private List<SkiResort> skiResorts;
 
 }

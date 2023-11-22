@@ -1,20 +1,20 @@
-package com.example.Project2SpringJPA.slope.controller.impl;
+package com.example.slopeProject.slope.controller.impl;
 
-import com.example.Project2SpringJPA.slope.controller.api.SlopeController;
-import com.example.Project2SpringJPA.slope.dto.GetSlopesResponse;
-import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
-import com.example.Project2SpringJPA.slope.service.api.SlopeService;
+import com.example.slopeProject.slope.controller.api.SlopeController;
+import com.example.slopeProject.slope.dto.GetSlopesResponse;
+import com.example.slopeProject.slope.dto.PatchSlopeRequest;
+import com.example.slopeProject.slope.service.api.SlopeService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import com.example.Project2SpringJPA.slope.dto.GetSlopeResponse;
-import com.example.Project2SpringJPA.slope.dto.PutSlopeRequest;
-import com.example.Project2SpringJPA.slope.entity.Slope;
-import com.example.Project2SpringJPA.slope.function.SlopeToResponseFunction;
-import com.example.Project2SpringJPA.slope.function.SlopesToResponseFunction;
-import com.example.Project2SpringJPA.slope.function.RequestToSlopeFunction;
+import com.example.slopeProject.slope.dto.GetSlopeResponse;
+import com.example.slopeProject.slope.dto.PutSlopeRequest;
+import com.example.slopeProject.slope.entity.Slope;
+import com.example.slopeProject.slope.function.SlopeToResponseFunction;
+import com.example.slopeProject.slope.function.SlopesToResponseFunction;
+import com.example.slopeProject.slope.function.RequestToSlopeFunction;
 
 import java.util.List;
 import java.util.UUID;

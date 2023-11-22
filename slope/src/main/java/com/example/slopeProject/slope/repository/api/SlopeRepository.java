@@ -1,7 +1,7 @@
-package com.example.Project2SpringJPA.slope.repository.api;
+package com.example.slopeProject.slope.repository.api;
 
-import com.example.Project2SpringJPA.slope.entity.SkiResort;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.skiResort.entity.SkiResort;
+import com.example.slopeProject.slope.entity.Slope;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

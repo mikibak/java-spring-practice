@@ -1,7 +1,7 @@
-package com.example.Project2SpringJPA.slope.function;
+package com.example.slopeProject.slope.function;
 
-import com.example.Project2SpringJPA.slope.dto.GetSlopesResponse;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.slope.dto.GetSlopesResponse;
+import com.example.slopeProject.slope.entity.Slope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

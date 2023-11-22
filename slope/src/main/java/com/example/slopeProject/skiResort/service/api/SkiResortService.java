@@ -1,7 +1,7 @@
-package com.example.Project2SpringJPA.slope.service.api;
+package com.example.slopeProject.skiResort.service.api;
 
-import com.example.Project2SpringJPA.slope.entity.SkiResort;
-import com.example.Project2SpringJPA.slope.entity.Slope;
+import com.example.slopeProject.skiResort.entity.SkiResort;
+import com.example.slopeProject.slope.entity.Slope;
 
 import java.util.List;
 import java.util.Optional;

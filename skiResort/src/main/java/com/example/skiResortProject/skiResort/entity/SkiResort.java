@@ -1,4 +1,4 @@
-package com.example.Project2SpringJPA.slope.entity;
+package com.example.skiResortProject.skiResort.entity;
 import lombok.*;
 
 import jakarta.persistence.*;
@@ -28,17 +28,6 @@ public class SkiResort implements Comparable<SkiResort>, Serializable {
 
     @Column
     int visitors;
-
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @Column(name="slopes")
-    @OneToMany(mappedBy = "skiResort", cascade = CascadeType.REMOVE)
-    List<Slope> slopes;
-
-    public void addSlope(Slope slope) {
-        slopes.add(slope);
-    }
-
     @Override public int compareTo(SkiResort o)
     {
         if (this.visitors > o.visitors) {

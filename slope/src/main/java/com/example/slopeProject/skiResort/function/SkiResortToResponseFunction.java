@@ -1,8 +1,8 @@
-package com.example.skiResortProject.skiResort.function;
+package com.example.slopeProject.skiResort.function;
 
+import com.example.slopeProject.skiResort.dto.GetSkiResortResponse;
+import com.example.slopeProject.skiResort.entity.SkiResort;
 import org.springframework.stereotype.Component;
-import com.example.skiResortProject.skiResort.dto.GetSkiResortResponse;
-import com.example.skiResortProject.skiResort.entity.SkiResort;
 
 import java.util.function.Function;
 

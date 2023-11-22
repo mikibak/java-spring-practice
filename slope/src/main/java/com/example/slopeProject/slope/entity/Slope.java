@@ -1,4 +1,5 @@
-package com.example.Project2SpringJPA.slope.entity;
+package com.example.slopeProject.slope.entity;
+import com.example.slopeProject.skiResort.entity.SkiResort;
 import lombok.*;
 
 import jakarta.persistence.*;

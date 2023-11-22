@@ -1,4 +1,4 @@
-package com.example.Project2SpringJPA.slope.dto;
+package com.example.skiResortProject.skiResort.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

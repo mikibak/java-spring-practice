@@ -1,17 +1,17 @@
-package com.example.Project2SpringJPA.slope.controller.impl;
+package com.example.skiResortProject.skiResort.controller.impl;
 
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import com.example.Project2SpringJPA.slope.controller.api.SkiResortController;
-import com.example.Project2SpringJPA.slope.dto.GetSkiResortResponse;
-import com.example.Project2SpringJPA.slope.dto.GetSkiResortsResponse;
-import com.example.Project2SpringJPA.slope.entity.SkiResort;
-import com.example.Project2SpringJPA.slope.function.SkiResortToResponseFunction;
-import com.example.Project2SpringJPA.slope.function.SkiResortsToResponseFunction;
-import com.example.Project2SpringJPA.slope.service.api.SkiResortService;
+import com.example.skiResortProject.skiResort.controller.api.SkiResortController;
+import com.example.skiResortProject.skiResort.dto.GetSkiResortResponse;
+import com.example.skiResortProject.skiResort.dto.GetSkiResortsResponse;
+import com.example.skiResortProject.skiResort.entity.SkiResort;
+import com.example.skiResortProject.skiResort.function.SkiResortToResponseFunction;
+import com.example.skiResortProject.skiResort.function.SkiResortsToResponseFunction;
+import com.example.skiResortProject.skiResort.service.api.SkiResortService;
 
 import java.util.List;
 import java.util.UUID;

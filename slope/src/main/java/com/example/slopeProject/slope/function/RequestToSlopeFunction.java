@@ -1,9 +1,9 @@
-package com.example.Project2SpringJPA.slope.function;
+package com.example.slopeProject.slope.function;
 
 import org.springframework.stereotype.Component;
-import com.example.Project2SpringJPA.slope.dto.PutSlopeRequest;
-import com.example.Project2SpringJPA.slope.entity.Slope;
-import com.example.Project2SpringJPA.slope.entity.SkiResort;
+import com.example.slopeProject.slope.dto.PutSlopeRequest;
+import com.example.slopeProject.slope.entity.Slope;
+import com.example.slopeProject.skiResort.entity.SkiResort;
 
 import java.util.UUID;
 import java.util.function.BiFunction;

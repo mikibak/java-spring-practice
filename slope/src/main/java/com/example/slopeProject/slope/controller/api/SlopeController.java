@@ -1,9 +1,9 @@
-package com.example.Project2SpringJPA.slope.controller.api;
+package com.example.slopeProject.slope.controller.api;
 
-import com.example.Project2SpringJPA.slope.dto.GetSlopeResponse;
-import com.example.Project2SpringJPA.slope.dto.GetSlopesResponse;
-import com.example.Project2SpringJPA.slope.dto.PatchSlopeRequest;
-import com.example.Project2SpringJPA.slope.dto.PutSlopeRequest;
+import com.example.slopeProject.slope.dto.GetSlopeResponse;
+import com.example.slopeProject.slope.dto.GetSlopesResponse;
+import com.example.slopeProject.slope.dto.PatchSlopeRequest;
+import com.example.slopeProject.slope.dto.PutSlopeRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

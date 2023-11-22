@@ -1,4 +1,4 @@
 /**
  * Default services implementation.
  */
-package com.example.Project2SpringJPA.slope.service.impl;
+package com.example.slopeProject.slope.service.impl;
