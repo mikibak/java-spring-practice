@@ -1,0 +1,16 @@
+### Get all skiResorts
+
+GET http://localhost:8082/api/skiResorts
+
+### Get single skiResort
+
+GET http://localhost:8082/api/skiResorts/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
+### Get single skiResort, not existing
+
+GET http://localhost:8082/api/skiResorts/ac4e2683-b2ba-4695-94d9-806a97fce71e
+
+### Delete skiResort
+
+DELETE http://localhost:8082/api/skiResorts/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
+
