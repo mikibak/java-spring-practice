@@ -1,0 +1,38 @@
+### Get all slopes
+
+GET http://localhost:8081/api/slopes
+
+### Get single slope
+
+GET http://localhost:8081/api/slopes/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
+
+### Get single slope, not existing
+
+GET http://localhost:8081/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Get skiResort slopes
+
+GET http://localhost:8081/api/skiResorts/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76/slopes
+
+### Get skiResort slopes, not existing
+
+GET http://localhost:8081/api/skiResorts/ac4e2683-b2ba-4695-94d9-806a97fce71e/slopes
+
+### Create new slope
+
+PUT http://localhost:8081/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Chodnik pod eti",
+  "skiResort": "f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"
+}
+
+### Delete slope.
+
+DELETE http://localhost:8081/api/slopes/3c6f1eb1-8069-44ab-988f-d7fed2b65d87
+
+### Delete skiResort
+
+DELETE http://localhost:8081/api/skiResorts/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76

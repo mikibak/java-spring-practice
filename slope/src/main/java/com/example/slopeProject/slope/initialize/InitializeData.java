@@ -49,21 +49,21 @@ public class InitializeData implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         SkiResort Monterosa = SkiResort
                 .builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("f5875513-bf7b-4ae1-b8a5-5b70a1b90e76"))
                 .name("Monterosa")
                 .visitors(10000)
                 .slopes(new ArrayList<>())
                 .build();
         SkiResort SappeyEnChartreuse = SkiResort
                 .builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("5d1da2ae-6a14-4b6d-8b4f-d117867118d4"))
                 .name("Sappey-en-Chartreuse")
                 .slopes(new ArrayList<>())
                 .visitors(1700)
                 .build();
         SkiResort Wiezyca = SkiResort
                 .builder()
-                .id(UUID.randomUUID())
+                .id(UUID.fromString("2d9b1e8c-67c5-4188-a911-5f064a63d8cd"))
                 .name("Wieżyca")
                 .visitors(150)
                 .slopes(new ArrayList<>())
