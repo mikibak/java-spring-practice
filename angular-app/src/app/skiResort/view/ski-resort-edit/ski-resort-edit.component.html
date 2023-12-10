@@ -1,4 +1,4 @@
-<article *ngIf="slope">
+<article *ngIf="skiResort">
   <header><h2>Edit slope</h2></header>
 
   <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
@@ -6,7 +6,7 @@
       <div class="col-4 p-2">
         <div>
           <label for="name">Name:</label>
-          <input id="name" name="name" [(ngModel)]="slope.name"/>
+          <input id="name" name="name" [(ngModel)]="skiResort.name"/>
         </div>
       </div>
     </div>
@@ -14,23 +14,9 @@
     <div class="row">
       <div class="col-4 p-2">
         <div>
-          <label for="steepness">Age:</label>
-          <input id="steepness" name="steepness" [(ngModel)]="slope.steepness"/>
+          <label for="visitors">Age:</label>
+          <input id="visitors" name="visitors" [(ngModel)]="skiResort.visitors"/>
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4 p-2">
-        <fieldset *ngIf="skiResorts">
-          <legend>SkiResort:</legend>
-          <div *ngFor="let skiResort of skiResorts.skiResorts">
-            <label>
-              <input type="radio" name="skiResort" [(ngModel)]="slope.skiResort" [value]="skiResort.id"/>
-              {{skiResort.name}}
-            </label>
-          </div>
-        </fieldset>
       </div>
     </div>
 

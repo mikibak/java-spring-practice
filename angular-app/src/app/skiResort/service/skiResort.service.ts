@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { SkiResorts } from "../model/skiResorts";
 import {SkiResort} from "../model/skiResort";
 import {SkiResortForm} from "../model/ski-resort-form";
+import {SkiResortDetails} from "../model/ski-resort-details";
 
 /**
  * SkiResort management service. Calls REST endpoints.
@@ -33,8 +34,8 @@ export class SkiResortService {
     return this.http.delete('/api/skiResorts/' + uuid);
   }
 
-  getSkiResort(param: any) {
-    return this.http.get<SkiResort>('/api/skiResort');
+  getSkiResort(uuid: string) {
+    return this.http.get<SkiResortDetails>('/api/skiResorts/' + uuid);
   }
 
   putSkiResort(uuid: string, skiResortForm: SkiResortForm) {
