@@ -5,6 +5,7 @@ import { SkiResorts } from "../model/skiResorts";
 import {SkiResort} from "../model/skiResort";
 import {SkiResortForm} from "../model/ski-resort-form";
 import {SkiResortDetails} from "../model/ski-resort-details";
+import {Slopes} from "../../slope/model/slopes";
 
 /**
  * SkiResort management service. Calls REST endpoints.
@@ -40,5 +41,13 @@ export class SkiResortService {
 
   putSkiResort(uuid: string, skiResortForm: SkiResortForm) {
     return this.http.put('/api/skiResorts/' + uuid, skiResortForm);
+  }
+
+  getSkiResortSlopes(uuid: string) {
+    return this.http.get<Slopes>('/api/skiResorts/' + uuid + '/slopes');
+  }
+
+  deleteSlope(uuid: string): Observable<any> {
+    return this.http.delete('/api/slopes/' + uuid);
   }
 }
