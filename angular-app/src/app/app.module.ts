@@ -13,6 +13,10 @@ import { SlopeService } from './slope/service/slope.service';
 import { SlopeViewComponent } from './slope/view/slope-view/slope-view.component';
 import { SlopeEditComponent } from './slope/view/slope-edit/slope-edit.component';
 import { FormsModule } from "@angular/forms";
+import { SkiResortListComponent } from './skiResort/view/ski-resort-list/ski-resort-list.component';
+import { SkiResortEditComponent } from './skiResort/view/ski-resort-edit/ski-resort-edit.component';
+import { SkiResortViewComponent } from './skiResort/view/ski-resort-view/ski-resort-view.component';
+import {SkiResortService} from "./skiResort/service/skiResort.service";
 
 /**
  * Application main module.
@@ -26,7 +30,10 @@ import { FormsModule } from "@angular/forms";
     MainComponent,
     SlopeListComponent,
     SlopeViewComponent,
-    SlopeEditComponent
+    SlopeEditComponent,
+    SkiResortListComponent,
+    SkiResortEditComponent,
+    SkiResortViewComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +43,7 @@ import { FormsModule } from "@angular/forms";
   ],
   providers: [
     SlopeService,
+    SkiResortService,
   ],
   bootstrap: [
     AppComponent

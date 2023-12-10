@@ -1,0 +1,24 @@
+<article *ngIf="skiResort">
+  <header><h2>{{skiResort.name}}</h2></header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row mb-2">
+          <div class="col-6">
+            SkiResort
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Visitors
+          </div>
+          <div class="col-6">
+            <span>{{skiResort.visitors}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

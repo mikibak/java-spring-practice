@@ -13,4 +13,6 @@ export interface SkiResort {
    */
   name: string;
 
+  visitors: number;
+
 }

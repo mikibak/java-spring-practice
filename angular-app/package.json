@@ -1,7 +1,7 @@
 {
   "name": "@org.example/angular-app",
   "version": "1.0.0-SNAPSHOT",
-  "description": "Simple RPG Angular based UI.",
+  "description": "Ski resort application Angular based UI.",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
