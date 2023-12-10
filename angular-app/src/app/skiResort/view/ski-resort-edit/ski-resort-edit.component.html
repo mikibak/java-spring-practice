@@ -1,5 +1,5 @@
 <article *ngIf="skiResort">
-  <header><h2>Edit slope</h2></header>
+  <header><h2>Edit ski resort</h2></header>
 
   <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-4 p-2">
         <div>
-          <label for="visitors">Age:</label>
+          <label for="visitors">Visitors:</label>
           <input id="visitors" name="visitors" [(ngModel)]="skiResort.visitors"/>
         </div>
       </div>

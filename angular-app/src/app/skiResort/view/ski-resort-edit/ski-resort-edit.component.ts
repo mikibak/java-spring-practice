@@ -48,9 +48,6 @@ export class SkiResortEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.slopeService.getSlopes()
-        .subscribe(slopes => this.slopes = slopes);
-
       this.skiResortService.getSkiResort(params['uuid'])
         .subscribe(skiResort => {
           this.uuid = skiResort.id;
