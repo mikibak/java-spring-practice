@@ -1,0 +1,28 @@
+<article class="text--justified">
+  <header><h2>Slopes</h2></header>
+
+  <table *ngIf="slopes">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slope of slopes.slopes">
+        <td>{{slope.name}}</td>
+        <td>
+          <a [routerLink]="['/slopes', slope.id]">View</a>
+        </td>
+        <td>
+          <a [routerLink]="['/slopes', slope.id, 'edit']">Edit</a>
+        </td>
+        <td>
+          <button (click)="onDelete(slope)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</article>

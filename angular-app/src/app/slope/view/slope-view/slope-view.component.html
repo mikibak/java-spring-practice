@@ -1,0 +1,27 @@
+<article *ngIf="slope">
+  <header><h2>{{slope.name}}</h2></header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row mb-2">
+          <div class="col-6">
+            SkiResort
+          </div>
+          <div class="col-6">
+            <span>{{slope.skiResort.id}}</span>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-6">
+            Steepness
+          </div>
+          <div class="col-6">
+            <span>{{slope.steepness}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
