@@ -1,0 +1,46 @@
+<article *ngIf="slope">
+  <header><h2>Add slope</h2></header>
+
+  <form class="container"  #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" name="name" [(ngModel)]="slope.name"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <div>
+          <label for="steepness">Steepness:</label>
+          <input id="steepness" name="steepness" [(ngModel)]="slope.steepness"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 p-2">
+        <fieldset *ngIf="skiResorts">
+          <legend>SkiResort:</legend>
+          <div *ngFor="let skiResort of skiResorts.skiResorts">
+            <label>
+              <input type="radio" name="skiResort" [(ngModel)]="slope.skiResort" [value]="skiResort.id"/>
+              {{skiResort.name}}
+            </label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2 p-2">
+        <button type="submit">Add</button>
+      </div>
+      <div class="col-2 p-2">
+        <button type="button" (click)="form.resetForm()">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>

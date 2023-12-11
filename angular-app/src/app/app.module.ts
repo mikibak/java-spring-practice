@@ -17,6 +17,8 @@ import { SkiResortListComponent } from './skiResort/view/ski-resort-list/ski-res
 import { SkiResortEditComponent } from './skiResort/view/ski-resort-edit/ski-resort-edit.component';
 import { SkiResortViewComponent } from './skiResort/view/ski-resort-view/ski-resort-view.component';
 import {SkiResortService} from "./skiResort/service/skiResort.service";
+import { SkiResortAddComponent } from './skiResort/view/ski-resort-add/ski-resort-add.component';
+import { SlopeAddComponent } from './slope/view/slope-add/slope-add.component';
 
 /**
  * Application main module.
@@ -33,7 +35,11 @@ import {SkiResortService} from "./skiResort/service/skiResort.service";
     SlopeEditComponent,
     SkiResortListComponent,
     SkiResortEditComponent,
-    SkiResortViewComponent
+    SkiResortViewComponent,
+    SkiResortAddComponent,
+    SkiResortAddComponent,
+    SlopeAddComponent,
+    SlopeAddComponent
   ],
   imports: [
     BrowserModule,
