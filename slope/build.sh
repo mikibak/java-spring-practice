@@ -4,14 +4,13 @@
 # Dockerfile.
 
 #######################################
-# Script main function. Builds application and docker image using Dockerfile and tags it based on
+# Script main function. Builds applicaiton and docker image using Dockerfile and tags it based on
 # org.opencontainers.image.version label in Dockerfile.
 # Arguments:
 #   None.
 #######################################
 function main() {
-    npm install
-    npm run build
+    JAVA_HOME=/usr/lib/jvm/default-java mvn clean verify
     title="$(grep -n "org.opencontainers.image.title" Dockerfile | cut -f2 -d "=" | xargs)"
     version="$(grep -n "org.opencontainers.image.version" Dockerfile | cut -f2 -d "=" | xargs)"
     docker build \
