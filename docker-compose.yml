@@ -1,6 +1,28 @@
 version: '3'
 
 services:
+  slope:
+    image: slope:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      SERVER_PORT: "8081"
+
+  ski-resort:
+    image: ski-resort:1
+    restart: always
+    environment:
+      RPG_CHARACTER_URL: "http://ski-resort:8080"
+      SERVER_PORT: "8082"
+
+  gateway:
+    image: gateway:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      RPG_CHARACTER_URL: "http://slope:8080"
+      RPG_PROFESSION_URL: "http://ski-resort:8080"
+      RPG_GATEWAY_HOST: "gateway:8080"
+      SERVER_PORT: "8084"
+
   angular-app:
     image: angular-app:1.0.0-SNAPSHOT
     restart: always
