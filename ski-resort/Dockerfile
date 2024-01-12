@@ -1,13 +1,13 @@
 FROM eclipse-temurin:17.0.6_10-jre
 
 LABEL org.opencontainers.image.title="ski-resort"
-LABEL org.opencontainers.image.version="1"
+LABEL org.opencontainers.image.version="1.0.0-SNAPSHOT"
 LABEL org.opencontainers.image.description="Ski resort application, ski resort module."
 
 LABEL build_version=""
 LABEL maintainer=""
 
-ENV VERSION="1"
+ENV VERSION="1.0.0-SNAPSHOT"
 
 ENV SERVER_PORT=8080
 
@@ -26,6 +26,6 @@ ENV RPG_CHARACTER_URL=http://localhost:8081
 
 EXPOSE 8080
 
-COPY target/ski-resort-${VERSION}.jar /opt/ski-resort/ski-resort.jar
+COPY target/skiResort-${VERSION}.jar /opt/ski-resort/ski-resort.jar
 
 CMD ["java", "-jar", "/opt/ski-resort/ski-resort.jar"]

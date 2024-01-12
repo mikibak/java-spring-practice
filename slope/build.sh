@@ -10,7 +10,7 @@
 #   None.
 #######################################
 function main() {
-    JAVA_HOME=/usr/lib/jvm/default-java mvn clean verify
+    JAVA_HOME=/home/mikibak/.jdks/temurin-17.0.9 mvn clean verify
     title="$(grep -n "org.opencontainers.image.title" Dockerfile | cut -f2 -d "=" | xargs)"
     version="$(grep -n "org.opencontainers.image.version" Dockerfile | cut -f2 -d "=" | xargs)"
     docker build \

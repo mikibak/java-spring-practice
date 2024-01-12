@@ -1,13 +1,13 @@
 FROM eclipse-temurin:17.0.6_10-jre
 
 LABEL org.opencontainers.image.title="slope"
-LABEL org.opencontainers.image.version="1.0.0-SNAPSHOT"
+LABEL org.opencontainers.image.version="0.0.1-SNAPSHOT"
 LABEL org.opencontainers.image.description="Ski resort application, slope module."
 
 LABEL build_version=""
 LABEL maintainer=""
 
-ENV VERSION="1.0.0-SNAPSHOT"
+ENV VERSION="0.0.1-SNAPSHOT"
 
 ENV SERVER_PORT=8080
 

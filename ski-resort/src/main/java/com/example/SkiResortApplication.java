@@ -27,7 +27,7 @@ public class SkiResortApplication {
      * @return configured endpoint for slope module
      */
     @Bean
-    public RestTemplate restTemplate(@Value("${slope.url}") String baseUrl) {
+    public RestTemplate restTemplate(@Value("${rpg.slope.url}") String baseUrl) {
         return new RestTemplateBuilder().rootUri(baseUrl).build();
     }
 
