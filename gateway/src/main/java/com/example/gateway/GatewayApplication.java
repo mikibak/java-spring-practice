@@ -17,7 +17,7 @@ public class GatewayApplication {
     @Bean
     public RouteLocator routeLocator(
             RouteLocatorBuilder builder,
-            @Value("${slope.url}") String slopeUrl,
+            @Value("${rpg.slope.url}") String slopeUrl,
             @Value("${rpg.skiResort.url}") String skiResortUrl,
             @Value("${rpg.gateway.host}") String host
     ) {
