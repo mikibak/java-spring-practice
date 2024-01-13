@@ -10,9 +10,9 @@
 #   None.
 #######################################
 function main() {
-    cd ./slope/; ./build.sh; cd ..
-    cd ./ski-resort/; ./build.sh; cd ..
-    cd ./gateway/; ./build.sh; cd ..
+    cd ./simple-rpg-slope/; ./build.sh; cd ..
+    cd ./simple-rpg-ski-resort/; ./build.sh; cd ..
+    cd ./simple-rpg-gateway/; ./build.sh; cd ..
     cd ./angular-app/; ./build.sh; cd ..
 }
 
