@@ -2,7 +2,7 @@ version: '3'
 
 services:
   slope:
-    image: slope:0.0.1-SNAPSHOT
+    image: slope:1.0.0-SNAPSHOT
     restart: always
 
   ski-resort:
@@ -12,12 +12,12 @@ services:
       RPG_CHARACTER_URL: "http://skiResort:8080"
 
   gateway:
-    image: gateway:0.0.1-SNAPSHOT
+    image: gateway:1.0.0-SNAPSHOT
     restart: always
     environment:
       RPG_CHARACTER_URL: "http://slope:8080"
       RPG_PROFESSION_URL: "http://skiResort:8080"
-      RPG_GATEWAY_HOST: "gateway:8080"
+      RPG_GATEWAY_HOST: "http://gateway:8080"
 
   angular-app:
     image: angular-app:1.0.0-SNAPSHOT

@@ -1,13 +1,18 @@
 FROM eclipse-temurin:17.0.6_10-jre
 
 LABEL org.opencontainers.image.title="gateway"
-LABEL org.opencontainers.image.version="0.0.1-SNAPSHOT"
-LABEL org.opencontainers.image.description="Ski resort application, gateway module."
+LABEL org.opencontainers.image.authors="Michał (psysiu) Wójcik"
+LABEL org.opencontainers.image.source="https://git.pg.edu.pl/platformy-technologiczne/simple-rpg"
+LABEL org.opencontainers.image.url="https://git.pg.edu.pl/internet-services-architectures"
+LABEL org.opencontainers.image.vendor="Gdańsk University of Technology"
+LABEL org.opencontainers.image.version="1.0.0-SNAPSHOT"
+LABEL org.opencontainers.image.description="Simple RPG game, gateway module."
+LABEL org.opencontainers.image.licenses="MIT"
 
 LABEL build_version=""
 LABEL maintainer=""
 
-ENV VERSION="0.0.1-SNAPSHOT"
+ENV VERSION="1.0.0-SNAPSHOT"
 
 ENV SERVER_PORT=8080
 
