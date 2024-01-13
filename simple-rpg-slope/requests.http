@@ -1,6 +1,6 @@
 ### Get all slopes
 
-GET http://localhost:8081/api/slopes
+GET http://localhost:8080/api/slopes
 
 ### Get single slope
 
